@@ -47,8 +47,7 @@ def main():
     datos_totales = lector.leerCSV(r"C:\Users\rv710\3_IA\Ingenieria_Software\Ing_Software_P2\Dataset-CV.csv")
 
     # Tomamos una muestra de 100 datos para la demo
-    datos_simulacion = datos_totales.sample(100).sort_values('tiempo')
-
+    datos_simulacion = datos_totales.sort_values('tiempo')
     gui = VisualizacionIncidencias()
 
     print(f"--> Enviando {len(datos_simulacion)} lecturas al servidor...")

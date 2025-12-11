@@ -8,7 +8,7 @@ from patron_observer import notificadorIncidencia, suscriptorAusenciaDatos, susc
 
 
 # --- CLASE UML: DetectroIncidencias (Cerebro del sistema) ---
-class DetectroIncidencias:
+class DetectorIncidencias:
     def __init__(self):
         # Atributos UML
         self.ultimahora = None
@@ -81,7 +81,7 @@ class DetectroIncidencias:
 
 # --- FLASK (Infraestructura HTTP) ---
 app = Flask(__name__)
-cerebro = DetectroIncidencias()
+cerebro = DetectorIncidencias()
 
 # Entrenar al arrancar
 cerebro.entrenar_sistema_interno()

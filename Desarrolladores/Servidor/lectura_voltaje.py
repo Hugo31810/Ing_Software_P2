@@ -7,7 +7,7 @@ class lecturaVoltaje:
     """
 
     def __init__(self):
-        self.estadoVoltaje = 0
+        self.estadoVoltaje= 0
         self.hora = None
         self.idDispositivo = 0
 

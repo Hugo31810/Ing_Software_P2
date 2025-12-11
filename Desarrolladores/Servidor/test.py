@@ -1,6 +1,6 @@
 import unittest
 import pandas as pd
-from servidor import DetectroIncidencias  # Importamos la clase del servidor
+from servidor import DetectorIncidencias  # Importamos la clase del servidor
 from lectura_voltaje import lecturaVoltaje
 
 
@@ -8,7 +8,7 @@ class TestSistemaFerroviario(unittest.TestCase):
 
     def setUp(self):
         """ Se ejecuta antes de cada prueba """
-        self.detector = DetectroIncidencias()
+        self.detector = DetectorIncidencias()
         self.lector = lecturaVoltaje()
 
     def test_lectura_csv_correcta(self):
