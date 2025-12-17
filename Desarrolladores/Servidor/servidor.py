@@ -54,7 +54,7 @@ class DetectorIncidencias:
     def entrenar_sistema_interno(self):
         """ Método auxiliar para cumplir el requisito de P2 (Training) """
         lector = lecturaVoltaje()
-        df = lector.leerCSV(r"C:\Users\rv710\3_IA\Ingenieria_Software\Ing_Software_P2\Dataset-CV.csv")
+        df = lector.leerCSV(r".\Dataset-CV.csv")
 
         if df is None: return False
 
