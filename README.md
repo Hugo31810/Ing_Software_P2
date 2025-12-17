@@ -49,7 +49,7 @@ Los roles del equipo se han asignado conforme a la definición de esta fase del 
 ### 🧪 Tester
 - **Hugo Salvador Aizpún**
 - **Iván De Rada López**
-- 
+
 ### 🏗️ Software Architect
 - **Raúl Vicente Sánchez**
 
