@@ -5,35 +5,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from lectura_voltaje import lecturaVoltaje
 from patron_observer import notificadorIncidencia, suscriptorAusenciaDatos, suscriptorSaltoVoltaje
+#resolver primer problema
+from detector_incidencias import DetectorIncidencias
 
-
-# --- CLASE UML: DetectroIncidencias (Cerebro del sistema) ---
-class DetectorIncidencias:
-    def __init__(self):
-        # Atributos UML
-        self.ultimahora = None
-        self.frecuencia=0
-
-        # Componentes internos
-        self.modelo = RandomForestClassifier(n_estimators=50, random_state=42)
-        self.entrenado = False
-        self.notificador = notificadorIncidencia()
-
-        # Suscribimos los listeners aquí mismo para que el servidor escuche
-        self.notificador.Addsuscriber(suscriptorAusenciaDatos())
-        self.notificador.Addsuscriber(suscriptorSaltoVoltaje())
-
-    def detectarAusenciaDatos(self, datos):
-        """ Operación UML: Implementada con lógica ML """
-        return datos['voltageReceiver1'] < 10  # Umbral de ejemplo
-
-    def detectarSaltoFrecuencia(self, datos_json):
-        """
-        Operación UML principal adaptada a ML.
-        Recibe datos, predice y si hay fallo, notifica.
-        """
-        if not self.entrenado:
-            return "SistemaNoListo"
+# --- CLASE UML: DetectroIncidencias (Cerebro del sistema) --- (borrada de momento a ver si funciona, si no la tengo guardada)
 
         # Preparamos el dato para la IA (DataFrame de 1 fila)
         df_input = pd.DataFrame([datos_json])
