@@ -1,8 +1,26 @@
+import sys
+import os
 import requests
-import time
 import matplotlib.pyplot as plt
-from lectura_voltaje import lecturaVoltaje
 
+# --- BLOQUE DE CONFIGURACIÓN DE RUTAS (LA SOLUCIÓN) ---
+# 1. Obtenemos la ruta de la carpeta donde está este script (carpeta 'Cliente')
+directorio_actual = os.path.dirname(os.path.abspath(__file__))
+
+# 2. Obtenemos la ruta de la raíz del proyecto (una carpeta atrás)
+directorio_raiz = os.path.dirname(directorio_actual)
+
+# 3. Añadimos la carpeta 'Servidor' al sistema para poder importar 'lectura_voltaje'
+#    aunque esté en otra carpeta.
+ruta_servidor = os.path.join(directorio_raiz, 'Servidor')
+sys.path.append(ruta_servidor)
+
+# 4. Definimos la ruta universal al CSV (que está en la raíz)
+ruta_csv = os.path.join(directorio_raiz, "Dataset-CV.csv")
+# -----------------------------------------------------
+
+# Ahora sí podemos importar el módulo de la otra carpeta
+from lectura_voltaje import lecturaVoltaje
 
 # --- CLASE UML: VisualizacionIncidencias ---
 class VisualizacionIncidencias:
@@ -44,7 +62,7 @@ def main():
 
     # 1. Cargar datos para simular los sensores del tren
     lector = lecturaVoltaje()
-    datos_totales = lector.leerCSV(r".\Dataset-CV.csv")
+    datos_totales = lector.leerCSV(ruta_csv)
 
     # Tomamos una muestra de 100 datos para la demo
     datos_simulacion = datos_totales.sort_values('tiempo')
