@@ -70,6 +70,6 @@ class DetectorIncidencias:
                     'hora': tiempos[i],
                     'v1': v1[i]
                 }
-                self.notificador.notify_subscribers(incidencia)
+                self.notificador.notifySuscribers(incidencia)
 
         print(f"--> [Desarrollo] Análisis finalizado. Incidentes detectados: {incidentes_count}")
